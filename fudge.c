@@ -21,7 +21,7 @@
 
 #define FUDGE_VERSION "0.1"
 #define FUDGE_TAB_STOP 8
-#define FUDGE_QUIT_TIMES 3
+#define FUDGE_QUIT_TIMES 1
 
 #define CTRL_KEY(k) ((k) & 0x1f)
 
@@ -525,8 +525,8 @@ void editorProcessKeypress() {
 
     case CTRL_KEY('q'):
       if (E.dirty && quit_times > 0){
-        editorSetStatusMessage("WARNING - File contains unsaved change. "
-          "Press Ctrl-Q %d more times to quit.", quit_times);
+        editorSetStatusMessage("WARNING - File contains unsaved changes. "
+          "Press Ctrl-Q %d more time(s) to quit.", quit_times);
         quit_times--;
         return;
       }
@@ -549,6 +549,7 @@ void editorProcessKeypress() {
       break;
 
     case BACKSPACE:
+      /* TODO*/
     case CTRL_KEY('h'):
     case DEL_KEY:
       /* TODO */
